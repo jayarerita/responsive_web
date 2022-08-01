@@ -4,6 +4,8 @@
     --space-3: 2rem;
     --space-4: 3rem;
     --sapce-5: 4rem;
+
+
 }
 
 /* Utilities */
@@ -43,6 +45,65 @@
 }
 .card .btn {
     box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+/* Backgrounds and colored buttons */
+.bg-primary, .btn-primary {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.bg-secondary, .btn-secondary {
+    background-color: var(--secondary-color);
+    color: #fff;
+}
+
+.bg-light, .btn-light {
+    background-color: var(--light-color);
+    color: #333;
+}
+
+.bg-dark, .btn-dark {
+    background-color: var(--dark-color);
+    color: #fff;
+}
+
+.bg-primary a {
+    color: #fff;
+}
+
+.bg-secondary a {
+    color: #fff;
+}
+
+.bg-light a {
+    color: #333;
+}
+
+.bg-dark a {
+    color: #fff;
+}
+
+/* Text sizing */
+
+.lead {
+    font-size: 20px;
+}
+
+.sm {
+    font-size: 1rem;
+}
+
+.md {
+    font-size: 2rem;
+}
+
+.lg {
+    font-size: 3rem;
+}
+
+.xl {
+    font-size: 4rem;
 }
 
 .text-center {
