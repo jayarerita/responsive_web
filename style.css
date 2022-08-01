@@ -1,54 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
+*, *::before, *::after {
+    box-sizing: border-box;
+}
 
-.nav-list {
+body {
+    --def: rgb(70, 117, 133);
+    --inv: #fff;
     display: flex;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
-    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(-25deg, beige, grey);
+    overflow: hidden;
 }
 
-.nav-list li {
-    width: 50%;
+html {
+    font-size: large;
+    font-family: "Poppins", sans-serif;
 }
 
-header {
-    --border-width: 5px;
+div {
+    margin-bottom: 3rem;
 }
 
-ul {
-    margin: 10px;
-    border: 6px solid brown;
+div:last-child {
+    margin-bottom: 0;
 }
 
-li {
-    margin: 0;
-    border: 6px solid rgb(105, 162, 105);
+.btn {
+    position: relative;
+    padding: 1.5rem, 4rem;
+    font-size: 1.5rem;
+    color: var(--inv);
+    letter-spacing: 1rem;
+    text-transform: uppercase;
+    transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
+    cursor: pointer;
+    user-select: none;
 }
 
-.columns {
-    display: flex;
-    gap: 2rem;
-    border: 10px solid firebrick;
-    align-items: center;
+.btn::before, .btn::after {
+    content: "";
+    position: absolute;
+    transition: inherit;
+    z-index: -1;
 }
 
-.columns > * {
-    flex-basis: 100%;
+.btn:hover {
+    color: var(--def);
+    transition-delay: 300ms;
 }
 
-.card {
-    background-color: lightblue;
-    padding: 1rem;
+.btn:hover::before {
+    transition-delay: 0s;
 }
 
-@media(max-width: 800px) {
-    .columns {
-        flex-direction: column;
-    }
-    
+.btn:hover::after {
+    transition-delay: 0.35s;
+    background: var(--inv);
+}
+
+/* From Top */
+
+.from-top::before, .from-top::after {
+    left: 0;
+    height: 0;
+    width: 100%;
+}
+
+.from-top::before {
+    bottom: 0;
+    border: 1px solid var(--inv);
+    border-top: 0;
+    border-bottom: 0;
+}
+
+.from-top::after {
+    top: 0;
+    height: 0;
+}
+
+.from-top:hover::before,
+.from-top:hover::after {
+    height: 100%;
+}
+
+/* From Left */
+
+.from-left::before, .from-left::after {
+    right: 0;
+    height: 100%;
+    width: 0;
+}
+
+.from-left::before {
+    border: 1px solid var(--inv);
+    border-left: 0;
+    border-right: 0;
+}
+
+.from-left::after {
+    left: 0;
+    width: 0;
+}
+
+.from-left:hover::before,
+.from-left:hover::after {
+    width: 100%;
 }
