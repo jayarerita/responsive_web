@@ -2,17 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Cool buttons</title>
+    <title>react</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15/babel.min.js"></script>
 </head>
+
+<style>
+    #container {
+        padding: 50px;
+        background-color: #EEE;
+    }
+    #container h1 {
+        font-size: x-large;
+        font-family: sans-serif;
+        color: blue;
+    }
+</style>
 <body>
-    <h1>Hello</h1>
-    <div class="btn from-top">Top</div>
-    <div class="btn from-left">Left</div>
-    <div class="btn from-right">Right</div>
-    <div class="btn from-bottom">bottom</div>
-    <div class="btn from-center">Center</div>
+    <div id="container">
+    </div>
+    <script type="text/babel">
+        var dest = document.querySelector("#container");
+
+        class HelloWorld extends React.Component {
+            render() {
+                return <p>Hello, {this.props.greetTarget}!</p>
+            }
+
+        }
+
+        class Buttonify extends React.Component {
+            render() {
+                return(
+                    <div>
+                        <button type={this.props.behavior}>{this.props.children}</button>
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            <div>
+                <HelloWorld greetTarget="Batman"/>
+                <HelloWorld greetTarget="Robin"/>
+                <Buttonify behavior="submit">SEND DATA</Buttonify>
+            </div>
+            ,
+            dest
+        );
+    </script>
 </body>
 </html>
