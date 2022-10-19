@@ -40,31 +40,13 @@
       border-color: #111;
       cursor: pointer;
     } 
-
-    #colorHeading {
-        padding: 0;
-        margin: 50px;
-        margin-bottom: -20px;
-        font-family: sans-serif;
-    }
     </style>
 <body>
-    <h1 id="colorHeading">Colorizer</h1>
+
     <div id="container">
     </div>
 
     <script type="text/babel">
-
-        var heading = document.querySelector("#colorHeading");
-
-        class ColorLabel extends React.Component {
-            render() {
-                return ReactDOM.createPortal(
-                    ": " + this.props.color,
-                    heading,
-                )
-            }
-        }
         class Colorizer extends React.Component {
             constructor(props) {
                 super(props);
@@ -80,20 +62,9 @@
 
             colorValue(e) {
                 this.setState({
-                    color: e.target.value
+                    bgColor: this.state.color,
                 });
                 
-                e.preventDefault();
-            }
-
-            setNewColor(e) {
-                this.setState({
-                    bgColor: this.state.color
-                });
-
-                this._input.focus();
-                this._input.value = "";
-
                 e.preventDefault();
             }
 
@@ -102,20 +73,15 @@
                     backgroundColor: this.state.bgColor,
                 };
 
-
                 return (
                     <div className="colorArea">
                         <div style={squareStyle} className="colorSquare"></div>
 
-                        <form onSubmit={this.setNewColor}>
+                        <form onSubmit={this.SetNewColor}>
                             <input onChange={this.colorValue}
-                                ref = {
-                                    (el) => this._input = el
-                                }
                                 placeholder="Enter a color value"></input>
                             <button type="submit">go</button>
                         </form>
-                        <ColorLabel color={this.state.bgColor} />
                     </div>
                 );
             }

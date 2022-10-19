@@ -1,0 +1,33 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    background-color: seagreen;
+}
+
+.container {
+    background-color: aliceblue;
+    margin: 100px;
+    padding: 10px;
+    border-radius: 3;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: auto;
+    
+}
+
+.buttons {
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 3px;
+    transition: all .15s ease-in;
+}
+.buttons:hover {
+    background-color: goldenrod;
+}
